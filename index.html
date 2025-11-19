@@ -125,7 +125,7 @@
             margin-bottom: 50px;
         }
 
-        /* --- CARDS (Education, Experience, Projects) --- */
+        /* --- CARDS --- */
         .card {
             background: var(--white);
             padding: 25px;
@@ -308,7 +308,7 @@
                 </div>
                 <ul id="proj2Desc">
                     <li>Led a team of 6 to develop biodegradable packaging material.</li>
-                    <li>Analysed effects of additives on permeability using Python.</li>
+                    <li>Analysed effects of various additives on material permeability quantitatively (Python).</li>
                     <li>Achieved 'Top Performer' recognition (1/20).</li>
                 </ul>
             </div>
@@ -360,7 +360,7 @@
                 proj1Title: "BCG Climate & Sustainability Job Simulation",
                 proj1Desc: "<li>Completed carbon emissions analysis and recommended Net Zero initiatives.</li><li>Adapted messaging strategies to address investor concerns.</li>",
                 proj2Title: "'Hack it' Project (Imperial College & Notpla)",
-                proj2Desc: "<li>Led a team of 6 to develop biodegradable packaging material.</li><li>Analysed effects of additives on permeability using Python.</li><li>Achieved 'Top Performer' recognition (1/20).</li>",
+                proj2Desc: "<li>Led a team of 6 to develop biodegradable packaging material.</li><li>Analysed effects of various additives on material permeability quantitatively (Python).</li><li>Achieved 'Top Performer' recognition (1/20).</li>",
                 skillsHeader: "Skills & Interests",
                 langSkill: "Mandarin (Native), English (Fluent)",
                 interestSkill: "Boxing, Painting, Photography"
@@ -403,7 +403,6 @@
             currentLang = currentLang === 'en' ? 'zh' : 'en';
             const data = content[currentLang];
 
-            // Update Text Content
             document.getElementById('heroName').textContent = data.heroName;
             document.getElementById('heroTitle').textContent = data.heroTitle;
             document.getElementById('location').textContent = data.location;
@@ -437,7 +436,6 @@
             document.getElementById('langSkill').textContent = data.langSkill;
             document.getElementById('interestSkill').textContent = data.interestSkill;
 
-            // Update Button Text
             const btn = document.getElementById('langBtn');
             if (currentLang === 'en') {
                 btn.textContent = "Switch to Chinese / 切换中文";
