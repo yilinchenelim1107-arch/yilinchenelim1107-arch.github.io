@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yilin Chen | Portfolio</title>
+    <style>
+        /* --- CSS VARIABLES: Macaroon & Purple Theme --- */
+        :root {
+            --primary-purple: #B39DDB;      /* Soft Purple */
+            --dark-purple: #7E57C2;         /* Darker text purple */
+            --macaroon-pink: #F8BBD0;       /* Pastel Pink */
+            --macaroon-teal: #80CBC4;       /* Pastel Teal */
+            --macaroon-cream: #FDF6F9;      /* Background Cream */
+            --white: #FFFFFF;
+            --text-main: #5D4037;           /* Soft brown text */
+            --text-light: #757575;
+            --shadow: 0 4px 15px rgba(179, 157, 219, 0.25);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        body {
+            background-color: var(--macaroon-cream);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* --- LAYOUT --- */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* --- HEADER & NAV --- */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--dark-purple);
+            background: linear-gradient(120deg, var(--macaroon-pink) 0%, var(--primary-purple) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        nav button {
+            background-color: var(--primary-purple);
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: var(--shadow);
+        }
+
+        nav button:hover {
+            background-color: var(--dark-purple);
+            transform: translateY(-2px);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+            background-color: var(--white);
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            margin-bottom: 40px;
+            border-top: 5px solid var(--macaroon-pink);
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: var(--dark-purple);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto 20px auto;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            font-size: 0.9rem;
+        }
+
+        .tag {
+            background-color: var(--macaroon-teal);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+        }
+
+        /* --- SECTIONS --- */
+        h2 {
+            color: var(--dark-purple);
+            border-bottom: 2px solid var(--macaroon-pink);
+            display: inline-block;
+            margin-bottom: 20px;
+            padding-bottom: 5px;
+        }
+
+        section {
+            margin-bottom: 50px;
+        }
+
+        /* --- CARDS (Education, Experience, Projects) --- */
+        .card {
+            background: var(--white);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow);
+            border-left: 4px solid var(--primary-purple);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+        }
+
+        .card-title {
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: var(--text-main);
+        }
+
+        .card-subtitle {
+            color: var(--primary-purple);
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .card-date {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            background-color: #f0f0f0;
+            padding: 2px 8px;
+            border-radius: 5px;
+        }
+
+        ul {
+            list-style-position: inside;
+            margin-top: 10px;
+            color: var(--text-main);
+        }
+
+        li {
+            margin-bottom: 5px;
+        }
+
+        /* --- SKILLS GRID --- */
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-pill {
+            background-color: var(--white);
+            border: 1px solid var(--primary-purple);
+            color: var(--dark-purple);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <div class="logo">Yilin Chen</div>
+            <nav>
+                <button onclick="toggleLanguage()" id="langBtn">Switch to Chinese / 切换中文</button>
+            </nav>
+        </header>
+
+        <div class="hero">
+            <h1 id="heroName">Yilin Chen</h1>
+            <p id="heroTitle">MSc Management Student at Imperial Business School | Chemistry Graduate</p>
+            <div class="contact-info">
+                <span class="tag" id="location">London, UK</span>
+                <span class="tag">yilin.chen21@imperial.ac.uk</span>
+                <span class="tag">+44 7536903601</span>
+            </div>
+        </div>
+
+        <section>
+            <h2 id="eduHeader">Education</h2>
+            
+            <div class="card">
+                <div class="card-header">
+                    <span class="card-title" id="edu1School">Imperial Business School</span>
+                    <span class="card-date" id="edu1Date">Aug 2025 - Aug 2026</span>
+                </div>
+                <div class="card-subtitle" id="edu1Degree">MSc in Management</div>
+                <ul id="edu1Desc">
+                    <li>Relevant modules: Marketing, Financial Accounting, Strategic Decisions, Innovation Management.</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <span class="card-title" id="edu2School">Imperial College London</span>
+                    <span class="card-date" id="edu2Date">Oct 2021 - Jun 2025</span>
+                </div>
+                <div class="card-subtitle" id="edu2Degree">Master of Science in Chemistry (First-class honours)</div>
+                <ul id="edu2Desc">
+                    <li>Specialising in Organic Chemistry.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2 id="expHeader">Professional Experience</h2>
+
+            <div class="card">
+                <div class="card-header">
+                    <span class="card-title" id="exp1Comp">The Bund School (Shanghai)</span>
+                    <span class="card-date" id="exp1Date">Jul 2024 - Jul 2024</span>
+                </div>
+                <div class="card-subtitle" id="exp1Role">Associate Consultant Intern</div>
+                <ul id="exp1Desc">
+                    <li>Organised content strategy, increasing client engagement by 20%.</li>
+                    <li>Conducted statistical analysis on 5-year employee data to identify performance correlations.</li>
+                    <li>Coordinated consulting projects and product comparisons of 32 companies.</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <span class="card-title" id="exp2Comp">Norwich Hardware (Taizhou)</span>
+                    <span class="card-date" id="exp2Date">Sep 2023 - Oct 2023</span>
+                </div>
+                <div class="card-subtitle" id="exp2Role">Sales Intern</div>
+                <ul id="exp2Desc">
+                    <li>Collaborated with retailers at the China Int'l Sewing Machinery Exhibition (10+ potential clients).</li>
+                    <li>Performed sales data analysis to optimise supply chain, resulting in 15% cost reduction.</li>
+                    <li>Cultivated client relations across 4 countries contributing to 5% business growth.</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <span class="card-title" id="exp3Comp">Snowball Import and Export (Hangzhou)</span>
+                    <span class="card-date" id="exp3Date">Aug 2023 - Aug 2023</span>
+                </div>
+                <div class="card-subtitle" id="exp3Role">Summer Intern</div>
+                <ul id="exp3Desc">
+                    <li>Coordinated with 3 logistics companies to secure competitive prices.</li>
+                    <li>Prepared 25 bills of lading and customs declarations with 100% accuracy.</li>
+                    <li>Managed end-to-end process for certificates of origin.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2 id="projHeader">Projects</h2>
+            
+            <div class="card">
+                <div class="card-header">
+                    <span class="card-title" id="proj1Title">BCG Climate & Sustainability Job Simulation</span>
+                    <span class="card-date">Aug 2025</span>
+                </div>
+                <ul id="proj1Desc">
+                    <li>Completed carbon emissions analysis and recommended Net Zero initiatives.</li>
+                    <li>Adapted messaging strategies to address investor concerns.</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <span class="card-title" id="proj2Title">'Hack it' Project (Imperial College and Notpla)</span>
+                    <span class="card-date">Jun 2022</span>
+                </div>
+                <ul id="proj2Desc">
+                    <li>Led a team of 6 to develop biodegradable packaging material.</li>
+                    <li>Analysed effects of additives on permeability using Python.</li>
+                    <li>Achieved 'Top Performer' recognition (1/20).</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2 id="skillsHeader">Skills & Interests</h2>
+            <div class="skills-grid">
+                <div class="skill-pill">Python</div>
+                <div class="skill-pill">Excel (Advanced)</div>
+                <div class="skill-pill">SQL</div>
+                <div class="skill-pill">3D Modelling</div>
+                <div class="skill-pill">ESG</div>
+                <div class="skill-pill" id="langSkill">Mandarin (Native), English (Fluent)</div>
+                <div class="skill-pill" id="interestSkill">Boxing, Painting, Photography</div>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2025 Yilin Chen. Built with Macaroon Colors.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Content Database
+        const content = {
+            en: {
+                heroName: "Yilin Chen",
+                heroTitle: "MSc Management Student at Imperial Business School | Chemistry Graduate",
+                location: "London, UK",
+                eduHeader: "Education",
+                edu1School: "Imperial Business School",
+                edu1Degree: "MSc in Management",
+                edu1Desc: "<li>Relevant modules: Marketing, Financial Accounting, Strategic Decisions, Innovation Management.</li>",
+                edu2School: "Imperial College London",
+                edu2Degree: "Master of Science in Chemistry (First-class honours)",
+                edu2Desc: "<li>Specialising in Organic Chemistry.</li>",
+                expHeader: "Professional Experience",
+                exp1Comp: "The Bund School (Shanghai)",
+                exp1Role: "Associate Consultant Intern",
+                exp1Desc: "<li>Organised content strategy, increasing client engagement by 20%.</li><li>Conducted statistical analysis on 5-year employee data to identify performance correlations.</li><li>Coordinated consulting projects and product comparisons of 32 companies.</li>",
+                exp2Comp: "Norwich Hardware (Taizhou)",
+                exp2Role: "Sales Intern",
+                exp2Desc: "<li>Collaborated with retailers at the China Int'l Sewing Machinery Exhibition (10+ potential clients).</li><li>Performed sales data analysis to optimise supply chain, resulting in 15% cost reduction.</li><li>Cultivated client relations across 4 countries contributing to 5% business growth.</li>",
+                exp3Comp: "Snowball Import and Export (Hangzhou)",
+                exp3Role: "Summer Intern",
+                exp3Desc: "<li>Coordinated with 3 logistics companies to secure competitive prices.</li><li>Prepared 25 bills of lading and customs declarations with 100% accuracy.</li><li>Managed end-to-end process for certificates of origin.</li>",
+                projHeader: "Projects",
+                proj1Title: "BCG Climate & Sustainability Job Simulation",
+                proj1Desc: "<li>Completed carbon emissions analysis and recommended Net Zero initiatives.</li><li>Adapted messaging strategies to address investor concerns.</li>",
+                proj2Title: "'Hack it' Project (Imperial College & Notpla)",
+                proj2Desc: "<li>Led a team of 6 to develop biodegradable packaging material.</li><li>Analysed effects of additives on permeability using Python.</li><li>Achieved 'Top Performer' recognition (1/20).</li>",
+                skillsHeader: "Skills & Interests",
+                langSkill: "Mandarin (Native), English (Fluent)",
+                interestSkill: "Boxing, Painting, Photography"
+            },
+            zh: {
+                heroName: "陈以琳 (Yilin Chen)",
+                heroTitle: "帝国理工商学院管理学硕士生 | 化学理学本硕学位",
+                location: "英国 伦敦",
+                eduHeader: "教育背景",
+                edu1School: "帝国理工商学院",
+                edu1Degree: "管理学硕士 (MSc in Management)",
+                edu1Desc: "<li>核心课程：市场营销、财务会计、战略决策、创新管理。</li>",
+                edu2School: "帝国理工学院",
+                edu2Degree: "化学理学硕士 (一等荣誉学位)",
+                edu2Desc: "<li>主修方向：有机化学</li>",
+                expHeader: "工作经历",
+                exp1Comp: "外滩商学院 (上海)",
+                exp1Role: "助理咨询顾问实习生",
+                exp1Desc: "<li>组织内容策略，通过协作将客户参与度提高了20%。</li><li>对5年的员工数据进行统计分析，确定绩效相关性。</li><li>协调咨询项目，对32家公司进行产品对比分析。</li>",
+                exp2Comp: "诺威五金 (台州)",
+                exp2Role: "销售实习生",
+                exp2Desc: "<li>在中国国际缝制设备展览会上与零售商合作，挖掘了10+潜在客户。</li><li>进行销售数据分析以优化供应链，实现成本降低15%。</li><li>维护4个国家的客户关系，推动业务增长5%。</li>",
+                exp3Comp: "实诺进出口公司 (杭州)",
+                exp3Role: "暑期实习生",
+                exp3Desc: "<li>与3家物流公司协调，确保有竞争力的价格和准时交付。</li><li>准备25份提单和报关单，准确率100%。</li><li>管理原产地证书获取的全流程。</li>",
+                projHeader: "项目经历",
+                proj1Title: "BCG 气候与可持续发展工作模拟",
+                proj1Desc: "<li>完成碳排放分析，并提出实现净零排放(Net Zero)的建议。</li><li>调整沟通策略以解决投资者的担忧。</li>",
+                proj2Title: "'Hack it' 项目 (帝国理工 & Notpla)",
+                proj2Desc: "<li>带领6人团队开发可生物降解的包装材料。</li><li>使用Python分析添加剂对渗透性的影响。</li><li>获得'最佳表现者'荣誉 (1/20)。</li>",
+                skillsHeader: "技能与兴趣",
+                langSkill: "中文 (母语), 英语 (流利)",
+                interestSkill: "拳击, 绘画 (油画/素描), 摄影"
+            }
+        };
+
+        let currentLang = 'en';
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'zh' : 'en';
+            const data = content[currentLang];
+
+            // Update Text Content
+            document.getElementById('heroName').textContent = data.heroName;
+            document.getElementById('heroTitle').textContent = data.heroTitle;
+            document.getElementById('location').textContent = data.location;
+            
+            document.getElementById('eduHeader').textContent = data.eduHeader;
+            document.getElementById('edu1School').textContent = data.edu1School;
+            document.getElementById('edu1Degree').textContent = data.edu1Degree;
+            document.getElementById('edu1Desc').innerHTML = data.edu1Desc;
+            document.getElementById('edu2School').textContent = data.edu2School;
+            document.getElementById('edu2Degree').textContent = data.edu2Degree;
+            document.getElementById('edu2Desc').innerHTML = data.edu2Desc;
+
+            document.getElementById('expHeader').textContent = data.expHeader;
+            document.getElementById('exp1Comp').textContent = data.exp1Comp;
+            document.getElementById('exp1Role').textContent = data.exp1Role;
+            document.getElementById('exp1Desc').innerHTML = data.exp1Desc;
+            document.getElementById('exp2Comp').textContent = data.exp2Comp;
+            document.getElementById('exp2Role').textContent = data.exp2Role;
+            document.getElementById('exp2Desc').innerHTML = data.exp2Desc;
+            document.getElementById('exp3Comp').textContent = data.exp3Comp;
+            document.getElementById('exp3Role').textContent = data.exp3Role;
+            document.getElementById('exp3Desc').innerHTML = data.exp3Desc;
+
+            document.getElementById('projHeader').textContent = data.projHeader;
+            document.getElementById('proj1Title').textContent = data.proj1Title;
+            document.getElementById('proj1Desc').innerHTML = data.proj1Desc;
+            document.getElementById('proj2Title').textContent = data.proj2Title;
+            document.getElementById('proj2Desc').innerHTML = data.proj2Desc;
+
+            document.getElementById('skillsHeader').textContent = data.skillsHeader;
+            document.getElementById('langSkill').textContent = data.langSkill;
+            document.getElementById('interestSkill').textContent = data.interestSkill;
+
+            // Update Button Text
+            const btn = document.getElementById('langBtn');
+            if (currentLang === 'en') {
+                btn.textContent = "Switch to Chinese / 切换中文";
+            } else {
+                btn.textContent = "Switch to English / 切换英文";
+            }
+        }
+    </script>
+</body>
+</html>
